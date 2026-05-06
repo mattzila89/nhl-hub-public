@@ -1,0 +1,86 @@
+@font-face {
+    font-family: "NHLFont";
+    src: url("./frontend/assets/fonts/NHL.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ESPNFont";
+    src: url("./frontend/assets/fonts/ESPN.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "ESPNFont-Upright";
+    src: url("./frontend/assets/fonts/ESPN-UPRIGHT.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter";
+    src: url("./frontend/assets/fonts/Inter.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Inter-Black";
+    src: url("./frontend/assets/fonts/Inter-Black.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body,
+#root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000000;
+}
+
+.page-container {
+    position: fixed; /* 👈 important */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.page-container.success .background-video {
+    filter: brightness(0.6);
+    transition: filter 0.8s ease;
+}
+
+.background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 177.78vh;
+    height: 56.25vw;
+    min-width: 100vw;
+    min-height: 100vh;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.background-video iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.page-content-layer {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.main-background {
+    opacity: 0.6;
+}
