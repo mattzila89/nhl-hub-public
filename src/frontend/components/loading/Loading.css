@@ -1,0 +1,19 @@
+.loader-container {
+    display: flex;
+    justify-content: center; /* horizontal */
+    align-items: center; /* vertical */
+    height: 100vh; /* full screen */
+
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.loader-container.fade-out {
+    opacity: 0;
+}
+
+.loader-image {
+    width: 130px;
+    height: auto;
+    filter: drop-shadow(0 0 0px rgba(255, 255, 255, 0));
+}
