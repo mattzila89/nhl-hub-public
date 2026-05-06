@@ -1,0 +1,484 @@
+.overlay {
+    --overlay-scale: 0.92;
+    position: relative;
+    z-index: 1;
+    min-height: 100dvh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: "Inter", sans-serif;
+    opacity: 0;
+    transform: translateY(24px) scale(var(--overlay-scale));
+    transform-origin: center;
+    transition:
+        opacity 0.9s ease,
+        transform 0.9s ease;
+    padding: 24px max(16px, env(safe-area-inset-right))
+        calc(24px + env(safe-area-inset-bottom))
+        max(16px, env(safe-area-inset-left));
+    box-sizing: border-box;
+}
+
+.overlay.fade-in {
+    opacity: 1;
+    transform: translateY(0) scale(var(--overlay-scale));
+}
+
+.access-content {
+    text-align: center;
+    width: min(100%, 640px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.access-content.success {
+    animation: successPop 0.6s ease forwards;
+}
+
+.access-header {
+    margin-bottom: 24px;
+    max-width: 32rem;
+}
+
+@keyframes successPop {
+    0% {
+        transform: scale(1);
+        filter: brightness(1);
+    }
+    40% {
+        transform: scale(1.05);
+        filter: brightness(1.3);
+    }
+    100% {
+        transform: scale(1);
+        filter: brightness(1.1);
+    }
+}
+
+.title {
+    font-weight: 900;
+    margin-top: 0;
+    margin-bottom: 12px;
+    font-size: clamp(30px, 8vw, 42px);
+    line-height: 1.08;
+}
+
+.subtitle {
+    font-size: clamp(16px, 4vw, 20px);
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.35;
+    color: rgba(255, 255, 255, 0.88);
+}
+
+.code-inputs {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: clamp(6px, 1.8vw, 16px);
+    margin-bottom: 24px;
+    width: min(100%, 640px);
+    margin-inline: auto;
+}
+
+.code-box {
+    width: 100%;
+    min-width: 0;
+    height: clamp(46px, 13vw, 80px);
+    font-size: clamp(22px, 5vw, 44px);
+    text-align: center;
+    border-radius: clamp(10px, 2.5vw, 16px);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.18),
+        rgba(255, 255, 255, 0.05)
+    );
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0px 4px 4px rgba(0, 0, 0, 0.25),
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 1px rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+    outline: none;
+    -webkit-text-security: disc;
+    transition: all 0.3s ease;
+}
+
+.code-box:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.success .code-box {
+    border-color: rgba(100, 255, 180, 0.9);
+    box-shadow:
+        0 0 20px rgba(100, 255, 180, 0.6),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.code-box.error {
+    border-color: rgba(255, 80, 80, 0.9);
+    box-shadow:
+        0 0 0 2px rgba(255, 80, 80, 0.2),
+        0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.code-box:focus {
+    transform: scale(1.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow:
+        0 0 0 2px rgba(255, 255, 255, 0.15),
+        0 12px 40px rgba(0, 0, 0, 0.5),
+        inset 0 1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.attempts-feedback {
+    margin: 18px auto 0;
+    max-width: 28rem;
+    color: rgba(255, 205, 205, 0.95);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.drop-shadow {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    20% {
+        transform: translateX(-8px);
+    }
+    40% {
+        transform: translateX(8px);
+    }
+    60% {
+        transform: translateX(-6px);
+    }
+    80% {
+        transform: translateX(6px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.shake {
+    animation: shake 0.4s ease;
+}
+
+.mobile-passcode-shell,
+.mobile-code-dots,
+.mobile-keypad,
+.mobile-keypad-bottom-row {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    .overlay {
+        --overlay-scale: 1;
+    }
+
+    .access-content {
+        width: min(100%, 420px);
+        max-width: 420px;
+    }
+
+    .access-header {
+        margin-bottom: 18px;
+    }
+
+    .title {
+        font-size: clamp(24px, 5vw, 34px);
+        margin-bottom: 8px;
+    }
+
+    .subtitle {
+        font-size: clamp(14px, 2vw, 18px);
+        line-height: 1.25;
+    }
+
+    .code-inputs {
+        display: none;
+    }
+
+    .mobile-passcode-shell {
+        --mobile-keypad-button-max-size: 82px;
+        --mobile-keypad-column-gap: clamp(12px, 2.8vw, 16px);
+        --mobile-keypad-row-gap: clamp(12px, 2vh, 16px);
+        display: flex;
+        width: min(100%, 320px);
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        margin: 0 auto;
+    }
+
+    .mobile-code-dots {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        width: min(100%, 304px);
+        gap: 8px;
+        margin: 0 auto;
+    }
+
+    .mobile-code-dot {
+        width: clamp(11px, 1.4vw, 15px);
+        height: clamp(11px, 1.4vw, 15px);
+        justify-self: center;
+        border-radius: 999px;
+        border: 1.5px solid rgba(255, 255, 255, 0.9);
+        background: transparent;
+        box-sizing: border-box;
+        transition:
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+    }
+
+    .mobile-code-dot.filled {
+        background: rgba(255, 255, 255, 0.96);
+        transform: scale(1.02);
+    }
+
+    .mobile-code-dot.error {
+        border-color: rgba(255, 126, 126, 0.95);
+        box-shadow: 0 0 0 3px rgba(255, 90, 90, 0.16);
+    }
+
+    .mobile-keypad {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: var(--mobile-keypad-row-gap) var(--mobile-keypad-column-gap);
+        width: 100%;
+        margin: 0 auto;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .mobile-keypad-bottom-row {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0 var(--mobile-keypad-column-gap);
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-keypad-button {
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: var(--mobile-keypad-button-max-size);
+        justify-self: center;
+        border: 0;
+        border-radius: 999px;
+        background: radial-gradient(
+            circle at 32% 28%,
+            rgba(255, 255, 255, 0.18),
+            rgba(255, 255, 255, 0.09) 18%,
+            rgba(28, 28, 28, 0.88) 72%
+        );
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2px;
+        box-shadow:
+            0 18px 34px rgba(0, 0, 0, 0.36),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            opacity 0.18s ease;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
+    }
+
+    .mobile-keypad-button:active:not(:disabled) {
+        transform: scale(0.96);
+    }
+
+    .mobile-keypad-button:disabled {
+        opacity: 0.45;
+        cursor: not-allowed;
+    }
+
+    .mobile-keypad-digit {
+        font-size: clamp(28px, 3vw, 36px);
+        line-height: 1;
+        font-weight: 400;
+    }
+
+    .mobile-keypad-letters {
+        min-height: 12px;
+        font-size: clamp(9px, 1vw, 11px);
+        line-height: 1;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.84);
+        padding-left: 0.22em;
+    }
+
+    .mobile-keypad-letters-empty {
+        opacity: 0;
+    }
+
+    .mobile-keypad-bottom-spacer {
+        display: block;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        max-width: var(--mobile-keypad-button-max-size);
+        justify-self: center;
+    }
+
+    .mobile-keypad-delete-button {
+        gap: 1px;
+    }
+
+    .mobile-keypad-delete-icon {
+        font-size: clamp(22px, 2.4vw, 28px);
+        line-height: 1;
+        font-weight: 500;
+    }
+
+    .mobile-keypad-delete-label {
+        opacity: 0.92;
+    }
+
+    .attempts-feedback {
+        font-size: 15px;
+    }
+
+    .access-content .MuiAlert-root {
+        margin-top: 14px;
+    }
+}
+
+@media (max-width: 560px) {
+    .overlay {
+        padding: max(10px, env(safe-area-inset-top))
+            max(12px, env(safe-area-inset-right))
+            calc(14px + env(safe-area-inset-bottom))
+            max(12px, env(safe-area-inset-left));
+        align-items: center;
+        justify-content: center;
+    }
+
+    .access-content {
+        width: min(100%, 360px);
+    }
+
+    .access-header {
+        margin-bottom: 14px;
+    }
+
+    .title {
+        font-size: clamp(18px, 5.9vw, 24px);
+        margin-bottom: 4px;
+        line-height: 1.08;
+    }
+
+    .subtitle {
+        font-size: clamp(12px, 3.3vw, 15px);
+        font-weight: 500;
+        line-height: 1.2;
+    }
+
+    .mobile-passcode-shell {
+        --mobile-keypad-button-max-size: 80px;
+        --mobile-keypad-column-gap: clamp(10px, 3vw, 14px);
+        --mobile-keypad-row-gap: clamp(10px, 1.9vh, 14px);
+        width: min(100%, 316px);
+        gap: 12px;
+    }
+
+    .mobile-code-dots {
+        width: min(100%, 276px);
+        gap: 6px;
+    }
+
+    .mobile-code-dot {
+        width: clamp(10px, 3.2vw, 14px);
+        height: clamp(10px, 3.2vw, 14px);
+    }
+
+    .mobile-keypad-digit {
+        font-size: clamp(24px, 7vw, 34px);
+    }
+
+    .mobile-keypad-letters {
+        min-height: 10px;
+        font-size: clamp(8px, 2vw, 10px);
+    }
+
+    .mobile-keypad-delete-icon {
+        font-size: clamp(21px, 5.8vw, 28px);
+    }
+
+    .attempts-feedback {
+        margin-top: 12px;
+        font-size: 12px;
+    }
+
+    .access-content .MuiAlert-root {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 560px) and (max-height: 760px) {
+    .access-header {
+        margin-bottom: 12px;
+    }
+
+    .mobile-passcode-shell {
+        --mobile-keypad-button-max-size: 78px;
+        --mobile-keypad-column-gap: clamp(9px, 2.4vw, 12px);
+        --mobile-keypad-row-gap: clamp(8px, 1.4vh, 10px);
+        gap: 10px;
+    }
+
+    .mobile-code-dots {
+        width: min(100%, 264px);
+        gap: 5px;
+    }
+
+    .mobile-keypad-digit {
+        font-size: clamp(22px, 6.4vw, 30px);
+    }
+
+    .mobile-keypad-delete-icon {
+        font-size: clamp(19px, 5vw, 24px);
+    }
+
+    .mobile-keypad-letters {
+        min-height: 9px;
+        font-size: 8px;
+    }
+
+    .attempts-feedback {
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .overlay {
+        --overlay-scale: 0.75;
+    }
+}
