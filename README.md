@@ -8,6 +8,7 @@ NHL Hub combines live game data, playoff tracking, and a feature-rich real-time 
 
 ## Preview
 
+https://www.nhlhub.app/
 [![Watch the demo](/docs/screenshots/home.png)](https://zxjfbybflcnjgjcazcoy.supabase.co/storage/v1/object/public/videos/NHLHub-Preview.mp4)
 
 ---
