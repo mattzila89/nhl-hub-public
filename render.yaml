@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: nhl-hub-api
+    runtime: node
+    rootDir: src/server
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 22
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SECRET_KEY
+        sync: false
+      - key: GIPHY_API_KEY
+        sync: false
+      - key: CORS_ALLOWED_ORIGINS
+        sync: false
+      - key: TRUST_PROXY_HOPS
+        value: "1"
+      - key: LOGIN_MAX_FAILED_ATTEMPTS
+        value: "10"
+      - key: LOGIN_LOCKOUT_DURATION_MS
+        value: "900000"
+      - key: LOGIN_FAILURE_RESET_MS
+        value: "1800000"
+      - key: STREAM_PROBE_TIMEOUT_MS
+        value: "8000"
