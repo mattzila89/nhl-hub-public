@@ -1,4 +1,4 @@
-# NHL Hub
+# 🏒 NHL Hub
 
 A real-time private NHL hub built with React, TypeScript, Socket.IO, and Supabase. Designed and developed as an independent personal project.
 
@@ -6,14 +6,14 @@ NHL Hub combines live game data, playoff tracking, and a feature-rich real-time 
 
 ---
 
-## Preview
+## 👀 Preview
 
 https://www.nhlhub.app/
 [![Watch the demo](/docs/screenshots/home.png)](https://zxjfbybflcnjgjcazcoy.supabase.co/storage/v1/object/public/videos/NHLHub-Preview.mp4)
 
 ---
 
-## Highlights
+## ✨ Highlights
 
 - Real-time Socket.IO chat with reactions, typing indicators, read receipts, GIF search, image uploads, edits, deletes, and link previews
 - Team-personalized UI themes, wallpapers, avatars, and goal overlays
@@ -26,9 +26,9 @@ https://www.nhlhub.app/
 
 ---
 
-## Tech Stack
+## 🛠️ Tech Stack
 
-### Frontend
+### 🎨 Frontend
 
 - React 19
 - TypeScript
@@ -37,21 +37,21 @@ https://www.nhlhub.app/
 - TanStack Query 5
 - MUI 9
 
-### Backend
+### ⚙️ Backend
 
 - Express 5
 - Socket.IO 4
 - Supabase
 - Giphy API
 
-### Deployment
+### 🚀 Deployment
 
 - Vercel (frontend)
 - Render (backend)
 
 ---
 
-## Engineering Focus
+## 🧠 Engineering Focus
 
 This project was built with an emphasis on:
 
@@ -66,29 +66,29 @@ This project was built with an emphasis on:
 
 ---
 
-## Features
+## 🔥 Features
 
-### Authentication
+### 🔐 Authentication
 
 - Private 8-digit access-code login
 - Supabase-backed sessions
 - Login rate limiting and lockout protection
 - Persistent authentication via `/me` hydration
 
-### Personalized Experience
+### 🎨 Personalized Experience
 
 - Favorite-team onboarding flow
 - Team-driven wallpapers, colors, avatars, and overlays
 - Dynamic UI personalization throughout the application
 
-### Live NHL Experience
+### 🏒 Live NHL Experience
 
 - Live NHL schedules and game surfaces
 - Current NHL standings and wild-card views
 - Stanley Cup Playoffs bracket and round schedules
 - Theater-mode viewing experiences for watching highlights
 
-### Real-Time Chat
+### 💬 Real-Time Chat
 
 - Socket.IO-powered chat
 - Presence indicators
@@ -100,7 +100,7 @@ This project was built with an emphasis on:
 - Message editing/deleting
 - Goal siren overlays and synchronized animations
 
-## Testing
+## 🧪 Testing
 
 The project includes an expanding Cypress E2E test suite covering:
 
@@ -122,7 +122,7 @@ The project also includes an expanding Vitest unit test suite covering:
 
 ---
 
-## Deployment
+## 🌐 Deployment
 
 The frontend is deployed with Vercel.
 
@@ -130,13 +130,13 @@ The backend API and Socket.IO server are deployed with Render.
 
 The application uses SPA rewrites and no-index headers to keep the app private and non-searchable.
 
-# Motivation
+# ❤️ Motivation
 
 I wanted to build a hockey-focused platform that combined live game data, real-time interaction, and team-themed UI experiences into a single application where friends could follow games together and interact in a more immersive way.
 
 The project also serves as a playground for experimenting with real-time systems, frontend architecture, responsive UI patterns, and interactive user experiences.
 
-# Future Improvements
+# 🚧 Future Improvements
 
 - Native mobile app
 - Push notifications
@@ -144,7 +144,7 @@ The project also serves as a playground for experimenting with real-time systems
 - Watch-party synchronization
 - Enhanced analytics and presence systems
 
-# License
+# 📄License
 
 Private project. Not licensed for public use.
 
